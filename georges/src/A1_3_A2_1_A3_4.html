@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@1.18.0/dist/full.css" rel="stylesheet">
+    <style>
+        .fadeIn {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .inputFocus:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.875rem;
+            display: none;
+        }
+
+        .input-error {
+            border-color: red;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-100 via-purple-200 to-pink-300 min-h-screen flex flex-col items-center justify-center">
+    <a href="index.html">
+        <button class="fixed top-4 left-4 bg-blue-500 text-white p-2 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+            Retour à l'Accueil
+        </button>
+    </a>
+    
+    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-12 fadeIn">Contactez-moi</h1>
+
+    <form id="contact-form" class="bg-white p-8 rounded-xl shadow-2xl w-full sm:w-96 md:w-1/2 lg:w-1/3 fadeIn">
+        <div class="mb-6">
+            <label for="nom" class="block text-lg font-medium text-gray-700">Nom</label>
+            <input type="text" id="nom" name="nom" class="input input-bordered w-full" required pattern="[A-Za-zÀ-ÿéèêàâîïç]+" minlength="2" maxlength="30" placeholder="Nom" title="Le nom ne doit contenir que des lettres." />
+            <p id="nom-error" class="error-message">Le nom ne doit contenir que des lettres.</p>
+        </div>
+        <div class="mb-6">
+            <label for="prenom" class="block text-lg font-medium text-gray-700">Prénom</label>
+            <input type="text" id="prenom" name="prenom" class="input input-bordered w-full" required pattern="[A-Za-zÀ-ÿéèêàâîïç]+" minlength="2" maxlength="30" placeholder="Prénom" title="Le prénom ne doit contenir que des lettres." />
+            <p id="prenom-error" class="error-message">Le prénom ne doit contenir que des lettres.</p>
+        </div>
+        <div class="mb-6">
+            <label for="email" class="block text-lg font-medium text-gray-700">Email</label>
+            <input type="email" id="email" name="email" class="input input-bordered w-full" required placeholder="mail@site.com" />
+            <p id="email-error" class="error-message">Veuillez entrer un email valide (ex: x@y.z).</p>
+        </div>
+        <div class="mb-6">
+            <label for="message" class="block text-lg font-medium text-gray-700">Message</label>
+            <textarea id="message" name="message" rows="4" required class="input input-bordered w-full" placeholder="Votre message..."></textarea>
+        </div>
+        
+        <div id="error-message" class="text-red-500 hidden text-center mb-4">Tous les champs sont requis !</div>
+        
+        <button type="submit" id="send-button" class="btn btn-primary w-full" disabled>Envoyer</button>
+    </form>
+
+    <script>
+        function validateInput(input) {
+            const errorElement = document.getElementById(`${input.id}-error`);
+            const isValid = input.checkValidity();
+
+            if (isValid) {
+                errorElement.style.display = "none";
+                input.classList.remove('input-error');
+            } else {
+                errorElement.style.display = "block";
+                input.classList.add('input-error');
+            }
+
+            return isValid;
+        }
+
+        function checkFormValidity() {
+            const nom = document.getElementById("nom");
+            const prenom = document.getElementById("prenom");
+            const email = document.getElementById("email");
+            const message = document.getElementById("message");
+
+            const allValid = validateInput(nom) && validateInput(prenom) && validateInput(email) && message.value.trim() !== "";
+
+            const sendButton = document.getElementById("send-button");
+            sendButton.disabled = !allValid;
+        }
+
+        document.getElementById("nom").addEventListener("blur", function() {
+            if (this.value.trim() !== "") {
+                validateInput(this);
+                checkFormValidity();
+            }
+        });
+
+        document.getElementById("prenom").addEventListener("blur", function() {
+            if (this.value.trim() !== "") {
+                validateInput(this);
+                checkFormValidity();
+            }
+        });
+
+        document.getElementById("email").addEventListener("blur", function() {
+            if (this.value.trim() !== "") {
+                validateInput(this);
+                checkFormValidity();
+            }
+        });
+
+        document.getElementById("message").addEventListener("blur", function() {
+            if (this.value.trim() !== "") {
+                checkFormValidity();
+            }
+        });
+
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            const nom = document.getElementById("nom").value;
+            const prenom = document.getElementById("prenom").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            const errorMessage = document.getElementById("error-message");
+
+            errorMessage.classList.add("hidden");
+
+            if (!nom || !prenom || !email || !message) {
+                errorMessage.classList.remove("hidden");
+                event.preventDefault();
+                return;
+            }
+
+            const mailtoLink = `mailto:georgesweb006@gmail.com?subject=Contact de ${prenom} ${nom}&body=${message}\n\nEnvoyé par: ${email}`;
+            window.location.href = mailtoLink;
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

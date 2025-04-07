@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant</title>
+    <link href="./css/output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/daisyui@latest"></script>
+    <script defer src="./js/main.js"></script>
+    <script defer src="./js/script_calculatrice.js"></script>
+    <script defer src="./js/script_questionnaire.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <nav class="fixed top-0 w-full z-50 bg-gradient-to-r from-red-600 to-pink-500 text-white p-4 shadow-lg">
+        <div class="flex items-center justify-between">
+          
+          <div class="flex items-center space-x-4">
+            <a href="https://tracker.gg/valorant/profile/riot/Hiushiwild%23broke/overview?platform=pc&playlist=competitive&season=16118998-4705-5813-86dd-0292a2439d90" target="_blank">
+              <img src="./static/images/logos/logo.png" alt="Logo Valorant" class="h-10 w-10 rounded-full">
+            </a>
+            <a href="https://playvalorant.com/fr-fr/" target="_blank">
+              <div class="text-xl font-bold">Valorant</div>
+            </a>
+          </div>
+      
+          <ul class="flex space-x-6 text-lg font-medium">
+            <li><a href="#agents" class="hover:text-yellow-300">Agents</a></li>
+            <li><a href="#maps" class="hover:text-yellow-300">Maps</a></li>
+            <li><a href="#experience" class="hover:text-yellow-300">Mon Expérience</a></li>
+            <li><a href="javascript:void(0);" onclick="openModal();" class="hover:text-yellow-300">Calculatrice</a></li>
+            <li><a href="#Contact" class="hover:text-yellow-300">Contact</a></li>
+          </ul>
+      
+        </div>
+      </nav>
+
+      <div id="modal-background" class="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm hidden z-40"></div>
+
+      <div id="modal" class="fixed inset-0 hidden z-50 flex items-center justify-center">
+        <div class="bg-blue-100 rounded-2xl p-8 w-[95%] max-w-xl relative">
+      
+          <button class="btn btn-sm btn-circle absolute top-4 right-4 bg-red-400 text-white hover:bg-red-500" onclick="closeModal()">✕</button>
+      
+          <h3 class="text-2xl font-bold text-center text-blue-900 mb-6">💩 Ca(ca)lculette 💩</h3>
+      
+          <div class="flex justify-center mb-6 space-x-3">
+            <input type="text" id="num1" readonly class="w-24 text-center text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
+            <input type="text" id="operation" readonly class="w-12 text-center text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
+            <input type="text" id="num2" readonly class="w-24 text-center text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
+          </div>
+      
+          <div class="flex justify-center mb-6">
+            <input id="resultat" readonly class="text-center text-xl font-bold bg-white border border-green-400 text-green-700 rounded-lg px-4 py-2 shadow-inner w-40" value="0" />
+          </div>
+      
+          <div class="grid grid-cols-4 gap-4">
+            <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('1')">1</button>
+            <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('2')">2</button>
+            <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('3')">3</button>
+            <button class="btn btn-primary hover:scale-105" onclick="setOperation('+')">+</button>
+            <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('4')">4</button>
+            <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('5')">5</button>
+            <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('6')">6</button>
+            <button class="btn btn-primary hover:scale-105" onclick="setOperation('-')">-</button>
+            <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('7')">7</button>
+            <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('8')">8</button>
+            <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('9')">9</button>
+            <button class="btn btn-primary hover:scale-105" onclick="setOperation('*')">*</button>
+            <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('0')">0</button>
+            <button class="btn btn-warning hover:scale-105" onclick="resetCalculatrice()">C</button>
+            <button class="btn btn-success hover:scale-105" onclick="calculer()">=</button>
+            <button class="btn btn-primary hover:scale-105" onclick="setOperation('÷')">÷</button>
+          </div>
+      
+        </div>
+      </div>
+      
+      <section id="agents" class="p-6 mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 scroll-mt-40"></section>
+
+      <section id="maps" class="p-6 mt-20">
+        <div class="carousel-container mx-auto my-8 px-4 max-w-4xl">
+          <div id="carouselContainer" class="carousel w-full"></div>
+        </div>
+      </section>
+
+      <section id="experience" class="p-6 mt-20 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-6">Pourquoi j'aime Valorant</h2>
+
+        <p class="mb-4">
+          <strong>Pourquoi j’aime Valorant : une passion née au lycée</strong><br>
+          J’ai découvert <strong>Valorant</strong> à la fin de ma 3e, alors que je venais d’entrer au lycée. À l’époque, je cherchais un nouveau jeu compétitif dans lequel m’investir, et je suis tombé sur cette nouveauté signée Riot Games. Dès mes premières parties, j’ai su que ce jeu n’était pas comme les autres : j’ai accroché instantanément.
+          Aujourd’hui, après plus de <strong>3 500 heures de jeu</strong>, je peux dire sans hésitation que Valorant est bien plus qu’un simple passe-temps pour moi — c’est une vraie passion.
+        </p>
+
+        <p class="mb-4">
+          Ce qui m’a d’abord séduit, c’est l’équilibre parfait entre <strong>le gameplay tactique</strong>, la précision du FPS, et les <strong>capacités uniques de chaque agent</strong>.
+          Chaque personnage a sa propre identité, son style de jeu, sa voix, son lore. On ne se contente pas de choisir un skin ou un rôle : on incarne réellement un agent avec une personnalité bien marquée. 
+          Que ce soit <em>Phoenix, Jett, Omen</em>, ou <em>Chamber</em>, chacun apporte une manière différente d’aborder la partie, ce qui rend chaque game unique.
+        </p>
+
+        <p class="mb-4">
+          Les <strong>armes</strong> sont également extrêmement satisfaisantes à prendre en main : le feeling des tirs, le recul à maîtriser, les duels millimétrés... tout ça me pousse à toujours vouloir m'améliorer.
+          Et il faut aussi parler des <strong>skins</strong> : Riot a fait un boulot incroyable sur le design et les effets visuels. C’est vrai, les skins sont parfois un peu chers, mais il faut reconnaître qu’ils sont travaillés dans les moindres détails, et qu’ils ajoutent un vrai plaisir visuel au gameplay.
+        </p>
+
+        <p class="mb-4">
+          Ce que j’apprécie particulièrement avec Valorant, c’est la <strong>variété de modes de jeu</strong>. Quand je suis d’humeur compétitive, je me lance à fond dans les parties classées pour try hard et grimper les rangs.
+          Mais parfois, j’ai juste envie de me détendre avec mes potes, sans pression : dans ces moments-là, les modes comme l’unrated, le deathmatch, ou encore les modes temporaires sont parfaits pour s’amuser sans se prendre la tête.
+          Valorant arrive à équilibrer l’intensité de la compétition et la légèreté du fun entre amis, ce qui est assez rare dans ce genre de jeu.
+        </p>
+
+        <p class="mb-4">
+          En résumé, <strong>Valorant est bien plus qu’un jeu</strong> pour moi : c’est une expérience complète, qui m’accompagne depuis mes années lycée et continue de me captiver jour après jour.
+          Entre la richesse de son univers, la qualité de son gameplay, et les moments partagés avec mes amis, ce jeu a réussi à se faire une place durable dans mon quotidien.
+        </p>
+      </section>
+
+      <section id="Contact" class="p-6 mt-20">
+        <p>Si vous voulez me contacter, vous allez devoir répondre parfaitement à ce questionnaire...</p>
+        <button class="btn custom-btn" id="start-questionnaire-btn"><h1>Répondre au questionnaire</h1></button>
+      </section>
+
+      <button id="brute-force-btn">Brute Force</button>
+
+    </div>
+  </body>
+  <footer class="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
+    <aside>
+      <img src="static/images/logos/logo.png" alt="Logo" width="50" height="50" />
+      <p class="text-red-600">
+        ACME Industries Ltd.
+        <br />
+        Providing reliable tech since 1992
+      </p>
+    </aside>
+    </nav>
+  </footer>
+</html>
