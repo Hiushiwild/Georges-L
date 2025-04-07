@@ -73,17 +73,17 @@ document.addEventListener("DOMContentLoaded", () => {
     
     function generateCarousel() {
         const maps = [
-            { img: "./static/images/carousel/haven.avif", detailedImg: "./static/images/carousel/mapHaven.png", name: "Haven", id: "slide1" },
+            { img: "./static/images/carousel/haven.avif", detailedImg: "./static/images/carousel/maphaven.png", name: "Haven", id: "slide1" },
             { img: "./static/images/carousel/bind.avif", detailedImg: "./static/images/carousel/mapbind.png", name: "Bind", id: "slide2" },
             { img: "./static/images/carousel/split.avif", detailedImg: "./static/images/carousel/mapsplit.png", name: "Split", id: "slide3" },
             { img: "./static/images/carousel/ascent.avif", detailedImg: "./static/images/carousel/mapascent.png", name: "Ascent", id: "slide4" },
             { img: "./static/images/carousel/icebox.avif", detailedImg: "./static/images/carousel/mapicebox.png", name: "Icebox", id: "slide5" },
             { img: "./static/images/carousel/breeze.avif", detailedImg: "./static/images/carousel/mapbreeze.png", name: "Breeze", id: "slide6" },
-            { img: "./static/images/carousel/fracture.avif", detailedImg: "./static/images/carousel/mapFracture.png", name: "Fracture", id: "slide7" },
-            { img: "./static/images/carousel/pearl.avif", detailedImg: "./static/images/carousel/mapPearl.png", name: "Pearl", id: "slide8" },
-            { img: "./static/images/carousel/lotus.avif", detailedImg: "./static/images/carousel/mapLotus.png", name: "Lotus", id: "slide9" },
-            { img: "./static/images/carousel/abyss.avif", detailedImg: "./static/images/carousel/mapAbyss.png", name: "Abyss", id: "slide10" },
-            { img: "./static/images/carousel/sunset.avif", detailedImg: "./static/images/carousel/mapSunset.png", name: "Sunset", id: "slide11" },
+            { img: "./static/images/carousel/fracture.avif", detailedImg: "./static/images/carousel/mapfracture.png", name: "Fracture", id: "slide7" },
+            { img: "./static/images/carousel/pearl.avif", detailedImg: "./static/images/carousel/mappearl.png", name: "Pearl", id: "slide8" },
+            { img: "./static/images/carousel/lotus.avif", detailedImg: "./static/images/carousel/maplotus.png", name: "Lotus", id: "slide9" },
+            { img: "./static/images/carousel/abyss.avif", detailedImg: "./static/images/carousel/mapabyss.png", name: "Abyss", id: "slide10" },
+            { img: "./static/images/carousel/sunset.avif", detailedImg: "./static/images/carousel/mapsunset.png", name: "Sunset", id: "slide11" },
         ];
     
         const carouselItems = maps.map((map, index) => {
