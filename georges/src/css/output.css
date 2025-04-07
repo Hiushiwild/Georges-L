@@ -1918,3 +1918,59 @@
   inherits: false;
   initial-value: 1;
 }
+
+
+.custom-btn {
+  background-color: #000;
+  color: #ff0000;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.custom-btn h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.custom-btn:hover {
+  background-color: #1a1a1a;
+  color: #ff6666;
+  box-shadow: 0 6px 20px rgba(255, 102, 102, 0.5);
+  transform: scale(1.05);
+}
+#Contact {
+  background-color: #111;
+  color: white;
+  padding: 40px 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+}
+
+.custom-btn {
+  background-color: #000; /* fond noir */
+  color: #ff0000; /* texte rouge */
+  border: none;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.custom-btn h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.custom-btn:hover {
+  background-color: #1a1a1a;
+  color: #ff6666;
+  box-shadow: 0 6px 20px rgba(255, 102, 102, 0.5);
+  transform: scale(1.05);
+}
