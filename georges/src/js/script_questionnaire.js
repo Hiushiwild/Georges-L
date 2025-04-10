@@ -4,13 +4,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     bruteForceBtn.style.display = 'none';
 
+    console.log("Bouton 'Brute Force' : ", bruteForceBtn);
+
     btn.addEventListener('click', function() {
         document.body.innerHTML = '';
         afficherQuestion();
-        bruteForceBtn.style.display = 'inline-block';
-        
+
+        bruteForceBtn.style.display = 'block';
+        bruteForceBtn.style.position = 'fixed';
+        bruteForceBtn.style.bottom = '10px';
+        bruteForceBtn.style.left = '10px';
+        bruteForceBtn.style.padding = '10px 20px';
+        bruteForceBtn.style.fontSize = '16px';
+        bruteForceBtn.style.backgroundColor = '#e74c3c';
+        bruteForceBtn.style.color = 'white';
+        bruteForceBtn.style.border = 'none';
+        bruteForceBtn.style.borderRadius = '5px';
+        bruteForceBtn.style.cursor = 'pointer';
+        bruteForceBtn.style.zIndex = '1000';
         ajouterBoutons();
     });
+
+    bruteForceBtn.addEventListener('click', function() {
+        console.log("Brute Force activé !");
+        lancerBruteForce();
+    });
+
+    function lancerBruteForce() {
+        document.body.innerHTML = '';
+    
+        const messageBox = document.createElement("div");
+        messageBox.style.display = "flex";
+        messageBox.style.flexDirection = "column";
+        messageBox.style.justifyContent = "center";
+        messageBox.style.alignItems = "center";
+        messageBox.style.height = "100vh";
+        messageBox.style.fontSize = "1.5rem";
+        messageBox.style.textAlign = "center";
+        messageBox.innerHTML = `
+            <p>🧐 Ah... je vois que vous essayez de tricher ?</p>
+            <p style="margin-top: 1rem;">Pas de souci, on va chercher les bonnes réponses "pour vous"...<br><br></p>
+            <span class="loading loading-spinner loading-xl" style="margin-top: 2rem;"></span>
+        `;
+        document.body.appendChild(messageBox);
+    
+        setTimeout(() => {
+            messageBox.innerHTML = `
+                <p style="font-size: 1.2rem;">🤖 C'est bon ! <br> Nous avons trouvé les bonnes réponses. <br> Vous allez être redirigé dans un instant. 🫡</p>
+                <br>
+                <img src="./static/images/questionnaire/loading_gif.gif" alt="Recherche en cours..." style="max-width: 400px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+            `;
+        }, 5000);
+
+        setTimeout(() => {
+            window.location.href = "A1_3_A2_1_A3_4.html";
+        }, 11500);
+    }
 
     function ajouterBoutons() {
         const btnRetour = document.createElement("button");
@@ -55,6 +104,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.body.appendChild(btnRetour);
         document.body.appendChild(btnRecommencer);
+
+        const newBruteForceBtn = document.createElement("button");
+        newBruteForceBtn.id = "brute-force-btn";
+        newBruteForceBtn.textContent = "Brute Force";
+        newBruteForceBtn.style.position = 'fixed';
+        newBruteForceBtn.style.bottom = '10px';
+        newBruteForceBtn.style.left = '10px';
+        newBruteForceBtn.style.padding = '10px 20px';
+        newBruteForceBtn.style.fontSize = '16px';
+        newBruteForceBtn.style.backgroundColor = '#e74c3c';
+        newBruteForceBtn.style.color = 'white';
+        newBruteForceBtn.style.border = 'none';
+        newBruteForceBtn.style.borderRadius = '5px';
+        newBruteForceBtn.style.cursor = 'pointer';
+        newBruteForceBtn.style.zIndex = '1000';
+
+        newBruteForceBtn.addEventListener('click', lancerBruteForce);
+        document.body.appendChild(newBruteForceBtn);
     }
 
     function afficherQuestion() {
