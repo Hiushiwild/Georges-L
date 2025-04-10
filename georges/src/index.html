@@ -7,6 +7,7 @@
     <link href="./css/output.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script defer src="./js/main.js"></script>
     <script defer src="./js/script_calculatrice.js"></script>
     <script defer src="./js/script_questionnaire.js"></script>
@@ -15,7 +16,7 @@
     <div id="app">
       <nav class="fixed top-0 w-full z-50 bg-gradient-to-r from-red-600 to-pink-500 text-white p-4 shadow-lg">
         <div class="flex items-center justify-between">
-          
+      
           <div class="flex items-center space-x-4">
             <a href="https://tracker.gg/valorant/profile/riot/Hiushiwild%23broke/overview?platform=pc&playlist=competitive&season=16118998-4705-5813-86dd-0292a2439d90" target="_blank">
               <img src="./static/images/logos/logo.png" alt="Logo Valorant" class="h-10 w-10 rounded-full">
@@ -25,14 +26,21 @@
             </a>
           </div>
       
-          <ul class="flex space-x-6 text-lg font-medium">
+          <div class="lg:hidden">
+            <button onclick="toggleMenu()" class="text-white focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+      
+          <ul id="menu" class="hidden lg:flex space-x-6 text-lg font-medium">
             <li><a href="#agents" class="hover:text-yellow-300">Agents</a></li>
             <li><a href="#maps" class="hover:text-yellow-300">Maps</a></li>
             <li><a href="#experience" class="hover:text-yellow-300">Mon Expérience</a></li>
             <li><a href="javascript:void(0);" onclick="openModal();" class="hover:text-yellow-300">Calculatrice</a></li>
             <li><a href="#Contact" class="hover:text-yellow-300">Contact</a></li>
           </ul>
-      
         </div>
       </nav>
 
@@ -40,21 +48,21 @@
 
       <div id="modal" class="fixed inset-0 hidden z-50 flex items-center justify-center px-4 sm:px-6">
         <div class="bg-blue-100 rounded-2xl p-4 sm:p-6 md:p-8 w-full max-w-md sm:max-w-lg md:max-w-xl relative">
-      
+        
           <button id="close-modal" class="btn btn-sm btn-circle absolute top-4 right-4 bg-red-400 text-white hover:bg-red-500">✕</button>
-      
+        
           <h3 class="text-xl sm:text-2xl font-bold text-center text-blue-900 mb-4 sm:mb-6">💩 Ca(ca)lculette 💩</h3>
-      
+        
           <div class="flex justify-center mb-4 sm:mb-6 space-x-2 sm:space-x-3">
-            <input type="text" id="num1" readonly class="w-16 sm:w-24 text-center text-lg sm:text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
-            <input type="text" id="operation" readonly class="w-10 sm:w-12 text-center text-lg sm:text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
-            <input type="text" id="num2" readonly class="w-16 sm:w-24 text-center text-lg sm:text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
+            <input type="text" id="num1" readonly class="w-16 sm:w-24 md:w-32 text-center text-lg sm:text-xl md:text-2xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
+            <input type="text" id="operation" readonly class="w-10 sm:w-12 md:w-16 text-center text-lg sm:text-xl md:text-2xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
+            <input type="text" id="num2" readonly class="w-16 sm:w-24 md:w-32 text-center text-lg sm:text-xl md:text-2xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
           </div>
-      
+        
           <div class="flex justify-center mb-4 sm:mb-6">
-            <input id="resultat" readonly class="text-center text-lg sm:text-xl font-bold bg-white border border-green-400 text-green-700 rounded-lg px-3 py-2 shadow-inner w-32 sm:w-40" value="0" />
+            <input id="resultat" readonly class="text-center text-lg sm:text-xl md:text-2xl font-bold bg-white border border-green-400 text-green-700 rounded-lg px-3 py-2 shadow-inner w-32 sm:w-40 md:w-48" value="0" />
           </div>
-      
+        
           <div class="grid grid-cols-4 gap-2 sm:gap-4">
             <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('1')">1</button>
             <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('2')">2</button>
@@ -73,9 +81,10 @@
             <button class="btn btn-success hover:scale-105" onclick="calculer()">=</button>
             <button class="btn btn-primary hover:scale-105" onclick="setOperation('÷')">÷</button>
           </div>
-      
+        
         </div>
       </div>
+      
       
       <section id="agents" class="p-6 mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 scroll-mt-40"></section>
 
@@ -129,7 +138,7 @@
       </section>
 
       
-      <button id="brute-force-btn">Brute Force</button>
+      <button id="brute-force-btn" style="display: none;">Brute Force</button>
 
     </div>
   </body>
