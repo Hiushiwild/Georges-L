@@ -197,4 +197,9 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener('click', function() {
         clearPage();
     });
+
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("hidden");
+      }
 });
