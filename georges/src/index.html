@@ -36,26 +36,26 @@
         </div>
       </nav>
 
-      <div id="modal-background" class="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm hidden z-40"></div>
+      <<div id="modal-background" class="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm hidden z-40"></div>
 
-      <div id="modal" class="fixed inset-0 hidden z-50 flex items-center justify-center">
-        <div class="bg-blue-100 rounded-2xl p-8 w-[95%] max-w-xl relative">
+      <div id="modal" class="fixed inset-0 hidden z-50 flex items-center justify-center px-4 sm:px-6">
+        <div class="bg-blue-100 rounded-2xl p-4 sm:p-6 md:p-8 w-full max-w-md sm:max-w-lg md:max-w-xl relative">
       
-          <button class="btn btn-sm btn-circle absolute top-4 right-4 bg-red-400 text-white hover:bg-red-500" onclick="closeModal()">✕</button>
+          <button class="btn btn-sm btn-circle absolute top-4 right-4 bg-red-400 text-white hover:bg-red-500">✕</button>
       
-          <h3 class="text-2xl font-bold text-center text-blue-900 mb-6">💩 Ca(ca)lculette 💩</h3>
+          <h3 class="text-xl sm:text-2xl font-bold text-center text-blue-900 mb-4 sm:mb-6">💩 Ca(ca)lculette 💩</h3>
       
-          <div class="flex justify-center mb-6 space-x-3">
-            <input type="text" id="num1" readonly class="w-24 text-center text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
-            <input type="text" id="operation" readonly class="w-12 text-center text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
-            <input type="text" id="num2" readonly class="w-24 text-center text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
+          <div class="flex justify-center mb-4 sm:mb-6 space-x-2 sm:space-x-3">
+            <input type="text" id="num1" readonly class="w-16 sm:w-24 text-center text-lg sm:text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
+            <input type="text" id="operation" readonly class="w-10 sm:w-12 text-center text-lg sm:text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
+            <input type="text" id="num2" readonly class="w-16 sm:w-24 text-center text-lg sm:text-xl bg-white border border-blue-300 rounded-lg p-2 shadow-sm" />
           </div>
       
-          <div class="flex justify-center mb-6">
-            <input id="resultat" readonly class="text-center text-xl font-bold bg-white border border-green-400 text-green-700 rounded-lg px-4 py-2 shadow-inner w-40" value="0" />
+          <div class="flex justify-center mb-4 sm:mb-6">
+            <input id="resultat" readonly class="text-center text-lg sm:text-xl font-bold bg-white border border-green-400 text-green-700 rounded-lg px-3 py-2 shadow-inner w-32 sm:w-40" value="0" />
           </div>
       
-          <div class="grid grid-cols-4 gap-4">
+          <div class="grid grid-cols-4 gap-2 sm:gap-4">
             <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('1')">1</button>
             <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('2')">2</button>
             <button class="btn btn-secondary hover:scale-105" onclick="ajouterChiffre('3')">3</button>
