@@ -75,3 +75,10 @@ function closeModal() {
     document.getElementById("modal-background").classList.add("hidden");
     resetCalculatrice();
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const closeModalButton = document.getElementById("close-modal");
+    if (closeModalButton) {
+        closeModalButton.addEventListener("click", closeModal);
+    }
+});
