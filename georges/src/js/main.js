@@ -1,19 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
     const app = document.getElementById("app");
-
-
+  
     window.toggleMenu = function () {
-        const menu = document.getElementById("menu");
-      
-        menu.classList.toggle("hidden");
-      
-        if (!menu.classList.contains("hidden")) {
-          menu.classList.add("flex");
-        } else {
-          menu.classList.remove("flex");
-        }
-      };
+      const menu = document.getElementById("menu");
+  
+      menu.classList.toggle("hidden");
+  
+      if (!menu.classList.contains("hidden")) {
+        menu.classList.add("flex");
+      } else {
+        menu.classList.remove("flex");
+      }
+    };
+
 
 
     function getBadgeColor(badge) {
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { name: "Breach", badge: "Initiateur", img: "./static/images/cards/breach.webp", description:"Breach, le Suédois bionique, tire de puissantes décharges cinétiques pour ouvrir un chemin en territoire ennemi. Grâce aux dégâts et aux diversions ainsi provoqués, aucun combat n'est jamais en sa défaveur." },
             { name: "Brimstone", badge: "Contrôleur", img: "./static/images/cards/brimstone.webp", description:"Tout droit venu des États-Unis d'Amérique, Brimstone possède un arsenal orbital qui permet à son escouade de toujours avoir l'avantage. La précision et la fiabilité de ses compétences utilitaires font de lui un commandant sans égal sur le terrain." },
             { name: "Chamber", badge: "Sentinelle", img: "./static/images/cards/chamber.webp", description:"Aussi classe que bien équipé, le concepteur d'armes français Chamber repousse les assaillants avec une précision mortelle. Il met à profit son arsenal bien particulier pour tenir sa position et éliminer les ennemis de loin en prévoyant une solution aux défis posés par chaque stratégie." },
-            { name: "Clove", badge: "Contrôleur", img: "./static/images/cards/clove.webp", description:"Clove, l'intenable Écossais·e, déstabilise l'ennemi dans le feu de l'action comme le froid de la mort. Iel sème le trouble dans les rangs ennemis, même depuis sa tombe, car sa mort ne dure jamais très longtemps." },
+            { name: "Clove", badge: "Contrôleur", img: "./static/images/cards/clove.webp", description:"Clove, l'intenable Écossaise, déstabilise l'ennemi dans le feu de l'action comme le froid de la mort. Iel sème le trouble dans les rangs ennemis, même depuis sa tombe, car sa mort ne dure jamais très longtemps." },
             { name: "Cypher", badge: "Sentinelle", img: "./static/images/cards/cypher.webp", description:"Informateur originaire du Maroc, Cypher est un véritable réseau de surveillance à lui tout seul. Il révèle tous les secrets. Il détecte toutes les manœuvres. Rien n'échappe à Cypher." },
             { name: "Deadlock", badge: "Sentinelle", img: "./static/images/cards/deadlock.webp", description:"Deadlock, l'agent spécial norvégien, déploie un éventail de nanocâbles ultra-modernes pour défendre sa position contre le plus violent des assauts. Nul n'échappe à sa vigilance, ni ne survit à sa cruelle ténacité." },
             { name: "Fade", badge: "Initiateur", img: "./static/images/cards/fade.webp", description:"Originaire de Turquie, la chasseuse de primes Fade utilise le pouvoir des cauchemars pour s'emparer des secrets ennemis. Elle traque ses cibles et révèle leurs plus grandes peurs pour mieux les briser dans l'obscurité." },
