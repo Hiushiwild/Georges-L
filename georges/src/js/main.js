@@ -1,5 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+    
     const app = document.getElementById("app");
+
+
+    window.toggleMenu = function () {
+        const menu = document.getElementById("menu");
+      
+        menu.classList.toggle("hidden");
+      
+        if (!menu.classList.contains("hidden")) {
+          menu.classList.add("flex");
+        } else {
+          menu.classList.remove("flex");
+        }
+      };
+
 
     function getBadgeColor(badge) {
         switch(badge) {
@@ -198,14 +213,5 @@ document.addEventListener("DOMContentLoaded", () => {
         clearPage();
     });
 
-    function toggleMenu() {
-      const menu = document.getElementById("menu");
-      menu.classList.toggle("hidden");
-    
-      if (!menu.classList.contains("hidden")) {
-        menu.classList.add("flex", "flex-col", "space-y-4", "mt-4");
-      } else {
-        menu.classList.remove("flex", "flex-col", "space-y-4", "mt-4");
-      }
-    }
+
 });
