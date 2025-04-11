@@ -201,5 +201,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function toggleMenu() {
         const menu = document.getElementById("menu");
         menu.classList.toggle("hidden");
+      
+        if (!menu.classList.contains("hidden")) {
+          menu.classList.add("flex", "flex-col", "space-y-4", "mt-4");
+        } else {
+          menu.classList.remove("flex", "flex-col", "space-y-4", "mt-4");
+        }
       }
 });
