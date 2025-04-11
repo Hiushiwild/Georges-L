@@ -199,13 +199,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function toggleMenu() {
-        const menu = document.getElementById("menu");
-        menu.classList.toggle("hidden");
-      
-        if (!menu.classList.contains("hidden")) {
-          menu.classList.add("flex", "flex-col", "space-y-4", "mt-4");
-        } else {
-          menu.classList.remove("flex", "flex-col", "space-y-4", "mt-4");
-        }
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+        menu.classList.toggle('flex-col');
+        menu.classList.toggle('space-y-4');
+        menu.classList.toggle('mt-4');
       }
 });
